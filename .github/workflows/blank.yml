@@ -1,0 +1,19 @@
+name: CI
+on: [push]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: configure git
+      run: |
+        git config --global user.name "SichangHe"
+        git config --global user.email "sichanghe@users.noreply.github.com"
+    - name: pwd
+      run: pwd
+    - name: tree
+      run: tree /
